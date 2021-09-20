@@ -43,5 +43,20 @@ function teclado(e){
             ubicarNave();
         }
     }
+    if (tecla == "ArrowRight" && y>0){
+        x+=5;
+        if (x > anchoNavegador-20){
+            x =-anchoNave+20
+        }
+        ubicarNave();
+    }
+    if (tecla == "ArrowLeft" && y>0){
+        x-=5;
+        if (x < -anchoNave + 20){
+            x = anchoNavegador - 20;
+        }
+        ubicarNave();
+    }
 }
 
+ 
