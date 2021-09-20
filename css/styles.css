@@ -1,0 +1,14 @@
+body {
+  background-color: black;
+  margin: 0;
+  border-bottom: 30px solid violet;
+  height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  background-image: url(../img/F100028259.jpg);
+}
+
+#nave {
+  position: absolute;
+  bottom: 0;
+}
