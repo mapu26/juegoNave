@@ -1,5 +1,6 @@
 window.onload = inicio;
 window.onkeydown = teclado;
+window.onkeyup = soltarCursores;
 var nave;
 var x;
 var y = 0;
@@ -7,14 +8,29 @@ var anchoNavegador;
 var anchoNave;
 var altoNavegador;
 var altoNave;
+var crono;
+var pulsando = false;
 
 function inicio(){
     nave = document.querySelector("#nave");
     tomarMedidas();
     x = (anchoNavegador/2)-(anchoNave/2);
     ubicarNave();
-
+    crono = setInterval(gravedad, 400)
 }
+
+function soltarCursores(){
+    pulsando = false;
+}
+
+
+function gravedad(){
+    if (y>0 && pulsando == false){
+        y--;
+        ubicarNave();
+    }
+}
+
 // Esta funcion toma las medidas del navegador y la nave
 function tomarMedidas(){
     anchoNavegador = window.innerWidth;
@@ -29,8 +45,8 @@ function ubicarNave(){
 }
 
 function teclado(e){
-    
     let tecla = e.key;
+    pulsando = true;
     if (tecla == "ArrowUp"){
         if (altoNavegador-altoNave-30 > y){
             y+=5;
